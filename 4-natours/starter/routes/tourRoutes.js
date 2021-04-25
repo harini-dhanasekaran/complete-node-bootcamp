@@ -3,12 +3,12 @@ const router = express.Router();
 //to access the route functions
 const tourController = require(`${__dirname}/../controllers/tourControllers`);
 
-router.param('id',tourController.checkId);
-
+router.param('id', tourController.checkID);
 //usual routing calls
-router.route('/')
-    .get(tourController.getAllTours)
-    .post(tourController.addTour);
+router
+  .route('/')
+  .get(tourController.getAllTours)
+  .post(tourController.checkBody,tourController.addTour);
 router
   .route('/:id')
   .get(tourController.getTour)
